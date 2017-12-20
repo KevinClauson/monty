@@ -1,6 +1,6 @@
 #include "monty.h"
 
-/*data_t *data_info_g;*/
+data_t *data_info_g;
 
 void error_handler(int error, char **argv)
 {
@@ -8,15 +8,19 @@ void error_handler(int error, char **argv)
 	{
 	case 1 :
 		printf("USAGE: monty file\n");
+		free(data_info_g);
 		exit(EXIT_FAILURE);
 	case 2 :
 		printf("Error: Can't open file %s\n", argv[1]);
+		free(data_info_g);
 		exit(EXIT_FAILURE);
 	case 3:
 		printf("Error: malloc failed\n");
+		free(data_info_g);
 		exit(EXIT_FAILURE);
 	default:
 		printf("Not sure why this failed, but please start over.\n");
+		free(data_info_g);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -76,9 +80,11 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		error_handler(1, argv);
-
-	/*data_info_g->line_num = 3;*/
-
+	data_info_g = malloc(sizeof(data_t));
+	data_info_g->line_num = 0;
+	data_info_g->file_name = argv[1];
+	printf("test: %d\n", data_info_g->line_num);
+	printf("file name: %s\n", data_info_g->file_name);
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 		error_handler(2, argv);
