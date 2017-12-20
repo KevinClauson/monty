@@ -51,12 +51,16 @@ typedef struct instruction_s
 /**
  * struct data - caries data around to use in various functions
  * @file_name: the file name reading from
- *
+ * @line_num: current linee number
  */
 typedef struct data_s
 {
 	char *file_name;
-
+	int line_num;
 } data_t;
+
+/********* External Variables **********/
+
+extern data_t *data_info_g;
 
 #endif
