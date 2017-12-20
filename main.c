@@ -8,30 +8,58 @@ void error_handler(int error)
 	{
 	case 1 :
 		printf("USAGE: monty file\n");
-		free(data_g);
-		exit(EXIT_FAILURE);
+		break;
 	case 2 :
 		printf("Error: Can't open file %s\n", data_g->file_name);
-		free(data_g);
-		exit(EXIT_FAILURE);
+		break;
 	case 3:
 		printf("Error: malloc failed\n");
-		free(data_g);
-		exit(EXIT_FAILURE);
+		break;
 	case 4:
 		printf("L%d: unknown instruction %s\n", data_g->line_num, data_g->argument_1);
-		free(data_g);
-		exit(EXIT_FAILURE);
+		break;
 	case 5:
 		printf("L%d: usage: push integer\n", data_g->line_num);
-		free(data_g);
-		exit(EXIT_FAILURE);
+		break;
 	default:
 		printf("Not sure why this failed, but please start over.\n");
-		free(data_g);
-		exit(EXIT_FAILURE);
+	}
+	free(data_g);
+	exit(EXIT_FAILURE);
+}
+
+void my_pall(stack_t **stack, unsigned int line_number)
+{
+	printf("PALLLLLL\n");
+	if (stack == NULL)
+		printf("stack is NULL at %d\n", line_number);
+}
+
+void my_push(stack_t **stack, unsigned int line_number)
+{
+	printf("PUSHHHHH\n");
+	if (stack == NULL)
+		printf("stack is NULL at %d\n", line_number);
+}
+
+void execute_func(stack_t **stack)
+{
+	int i = 0;
+	instruction_t find_func[] = {
+		{"pall", my_pall},
+		{"push", my_push},
+		{NULL, NULL}
+	};
+	while (find_func[i].opcode != NULL)
+	{
+		if (strcmp(data_g->argument_1, find_func[i].opcode) == 0)
+		{
+			find_func[i].f(stack, data_g->line_num);
+		}
+		++i;
 	}
 }
+
 
 int check_if_int(char *arg_2)
 {
@@ -52,7 +80,6 @@ void argument_check(char *arg_1, char *arg_2)
 	if (strcmp(arg_1, "push") == 0)
 	{
 		data_g->argument_1 = arg_1;
-		printf("yeah its a %s\n", data_g->argument_1);
 		if (arg_2 == NULL || check_if_int(arg_2) == 0)
 			error_handler(5);
 		data_g->argument_2 = atoi(arg_2);
@@ -60,12 +87,15 @@ void argument_check(char *arg_1, char *arg_2)
 	else if (strcmp(arg_1, "pall") == 0)
 	{
 		data_g->argument_1 = arg_1;
-		printf("yeah its a %s\n", data_g->argument_1);
 	}
 	else if (arg_1 != NULL)
 	{
 		data_g->argument_1 = arg_1;
 		error_handler(4);
+	}
+	else
+	{
+		data_g->argument_1 = NULL;
 	}
 }
 
@@ -92,27 +122,15 @@ void read_file(FILE *fp)
 {
 	ssize_t read;
 	size_t len = 0;
-	int i;
 	char *line = NULL, **args;
-
+	stack_t **stack = NULL;
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
 		++data_g->line_num;
-		printf("%d, %s", data_g->line_num, line);
 		args = parse_args(line);
-		i = 0;
-		while (args[i])
-		{
-			printf("args[%d]: %s\n", i, args[i]);
-			++i;
-		}
 		argument_check(args[0], args[1]);
-		data_g->argument_1 = args[0];
-		if (strcmp(data_g->argument_1, "push") == 0)
-		{
-			printf("YEA its a push with argument: %d\n", atoi(args[1]));
-		}
-
+		printf("arg 1: %s; arg 2: %d\n", data_g->argument_1, data_g->argument_2);
+		execute_func(stack);
 	}
 	fclose(fp);
 	exit(EXIT_SUCCESS);

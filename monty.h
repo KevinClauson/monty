@@ -16,6 +16,15 @@
 /****** Defintions ********/
 #define BUF_SIZE 1024
 
+
+/******  Functions ********/
+void error_handler(int error);
+int check_if_int(char *arg_2);
+int check_if_int(char *arg_2);
+char **parse_args(char *line);
+void read_file(FILE *fp);
+
+
 /******* Structures *******/
 
 /**
