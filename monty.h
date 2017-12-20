@@ -57,6 +57,8 @@ typedef struct data_s
 {
 	char *file_name;
 	int line_num;
+	char *argument_1;
+	int argument_2;
 } data_t;
 
 /********* External Variables **********/

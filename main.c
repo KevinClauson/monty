@@ -2,7 +2,7 @@
 
 data_t *data_info_g;
 
-void error_handler(int error, char **argv)
+void error_handler(int error)
 {
 	switch(error)
 	{
@@ -11,7 +11,7 @@ void error_handler(int error, char **argv)
 		free(data_info_g);
 		exit(EXIT_FAILURE);
 	case 2 :
-		printf("Error: Can't open file %s\n", argv[1]);
+		printf("Error: Can't open file %s\n", data_info_g->file_name);
 		free(data_info_g);
 		exit(EXIT_FAILURE);
 	case 3:
@@ -32,12 +32,12 @@ char **parse_args(char *line)
 	char **args = malloc(len * sizeof(char *));
 	/*if (args == NULL)
 	  error_handler(3, );*/
-	token = strtok(line, " ");
+	token = strtok(line, " $");
 	while(token != NULL)
 	{
 		args[i] = token;
 		i++;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " $");
 	}
 	args[i] = NULL;
 	return (args);
@@ -50,11 +50,11 @@ void read_file(FILE *fp)
 	size_t len = 0;
 	int i;
 	char *line = NULL, **args;
-	int line_num = 0;
+
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		++line_num;
-		printf("%d, %s", line_num, line);
+		++data_info_g->line_num;
+		printf("%d, %s", data_info_g->line_num, line);
 		args = parse_args(line);
 		i = 0;
 		while (args[i])
@@ -62,6 +62,12 @@ void read_file(FILE *fp)
 			printf("args[%d]: %s\n", i, args[i]);
 			++i;
 		}
+		data_info_g->argument_1 = args[0];
+		if (strcmp(data_info_g->argument_1, "push") == 0)
+		{
+			printf("YEA its a push with argument: %d\n", atoi(args[1]));
+		}
+
 	}
 	fclose(fp);
 	exit(EXIT_SUCCESS);
@@ -79,7 +85,7 @@ int main(int argc, char **argv)
 	FILE *fp;
 
 	if (argc != 2)
-		error_handler(1, argv);
+		error_handler(1);
 	data_info_g = malloc(sizeof(data_t));
 	data_info_g->line_num = 0;
 	data_info_g->file_name = argv[1];
@@ -87,7 +93,7 @@ int main(int argc, char **argv)
 	printf("file name: %s\n", data_info_g->file_name);
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-		error_handler(2, argv);
+		error_handler(2);
 	read_file(fp);
 
 	return (0);
