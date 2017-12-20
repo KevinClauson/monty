@@ -63,6 +63,6 @@ typedef struct data_s
 
 /********* External Variables **********/
 
-extern data_t *data_info_g;
+extern data_t *data_g;
 
 #endif
