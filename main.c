@@ -46,8 +46,7 @@ int check_if_int(char *arg_2)
 {
 	int i;
 
-	i = 0;
-	while (arg_2[i])
+	for (i = 0; arg_2[i]; ++i)
 	{
 		if (i == 0 && arg_2[0] == '-' && arg_2[i + 1] >= 1 && arg_2[i + 1] <= '9')
 		{
@@ -57,7 +56,6 @@ int check_if_int(char *arg_2)
 		{
 			return (0);
 		}
-		++i;
 	}
 	return (1);
 }
