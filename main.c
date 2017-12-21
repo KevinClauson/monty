@@ -100,8 +100,9 @@ void read_file(FILE *fp)
 	while ((read = getline(&data_g->line, &len, fp)) != -1)
 	{
 		++data_g->line_num;
+		if (data_g->line == NULL)
+			error_handler(3);
 		data_g->args = parse_args(data_g->line);
-		/*argument_check(data_g->args[0], data_g->args[1]);*/
 		if (data_g->args[0] != NULL)
 			execute_func(&data_g->stack);
 
@@ -130,6 +131,8 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		error_handler(1);
 	data_g = malloc(sizeof(data_t));
+	if (data_g == NULL)
+		error_handler(3);
 	data_g->line_num = 0;
 	data_g->stack_len = 0;
 	data_g->file_name = argv[1];
