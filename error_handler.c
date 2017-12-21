@@ -18,7 +18,7 @@ void error_handler(int error)
 		exit(EXIT_FAILURE);
 	case 3:
 		printf("Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		break;
 	case 4:
 		printf("L%d: unknown instruction %s\n", data_g->line_num, data_g->args[0]);
 		break;
