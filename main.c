@@ -73,12 +73,12 @@ char **parse_args(char *line)
 
 	if (args == NULL)
 		error_handler(3);
-	token = strtok(line, " $\n");
+	token = strtok(line, " \n");
 	while (token != NULL)
 	{
 		args[i] = token;
 		i++;
-		token = strtok(NULL, " $\n");
+		token = strtok(NULL, " \n");
 	}
 	args[i] = NULL;
 	return (args);
