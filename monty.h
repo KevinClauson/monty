@@ -83,6 +83,9 @@ int check_if_int(char *arg_2);
 char **parse_args(char *line);
 void read_file(FILE *fp);
 
+void free_stack(stack_t **stack);
+void free_data(void);
+
 void my_push(stack_t **stack, unsigned int line_number);
 void my_pall(stack_t **stack, unsigned int line_number);
 void my_pint(stack_t **stack, unsigned int line_number);

@@ -107,6 +107,8 @@ void read_file(FILE *fp)
 
 		free(data_g->args);
 	}
+	free_stack(&data_g->stack);
+	free_data();
 	fclose(fp);
 	exit(EXIT_SUCCESS);
 }
