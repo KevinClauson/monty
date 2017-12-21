@@ -15,7 +15,6 @@ void error_handler(int error)
 	case 2:
 		printf("Error: Can't open file %s\n", data_g->file_name);
 		free(data_g);
-		fclose(data_g->fp);
 		exit(EXIT_FAILURE);
 	case 3:
 		printf("Error: malloc failed\n");
