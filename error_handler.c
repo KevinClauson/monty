@@ -41,8 +41,11 @@ void error_handler(int error)
 		printf("Not sure why this failed, but please start over.\n");
 		exit(EXIT_FAILURE);
 	}
-	fclose(data_g->fp);
-	free_stack(&data_g->stack);
-	free_data();
+	if (data_g != NULL)
+	{
+		fclose(data_g->fp);
+		free_stack(&data_g->stack);
+		free_data();
+	}
 	exit(EXIT_FAILURE);
 }
