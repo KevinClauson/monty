@@ -26,14 +26,14 @@ void free_data(void)
 {
 	if (data_g != NULL)
 	{
-		if (data_g->fp != NULL)
-			fclose(data_g->fp);
 		if (data_g->stack != NULL)
 			free_stack(&data_g->stack);
 		if (data_g->args != NULL)
 			free(data_g->args);
 		if (data_g->line != NULL)
 			free(data_g->line);
+		if (data_g->fp != NULL)
+			fclose(data_g->fp);
 		free(data_g);
 	}
 }

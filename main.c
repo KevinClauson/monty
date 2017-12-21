@@ -111,9 +111,7 @@ void read_file(FILE *fp)
 		data_g->line = NULL;
 		data_g->args = NULL;
 	}
-	free_stack(&data_g->stack);
 	free_data();
-	fclose(fp);
 	exit(EXIT_SUCCESS);
 }
 
@@ -133,6 +131,7 @@ int main(int argc, char **argv)
 	data_g = malloc(sizeof(data_t));
 	if (data_g == NULL)
 		error_handler(3);
+	data_g->fp = NULL;
 	data_g->line_num = 0;
 	data_g->stack_len = 0;
 	data_g->file_name = argv[1];
