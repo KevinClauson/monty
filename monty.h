@@ -59,6 +59,7 @@ typedef struct instruction_s
  * @argument_2: the second argument to read
  * @stack: pointer to doubly linked list
  * @stack_len: counter of how many nodes in linked list
+ * @fp: the pointer to the open file.
  */
 typedef struct data_s
 {
@@ -70,6 +71,7 @@ typedef struct data_s
 	int argument_2;
 	stack_t *stack;
 	int stack_len;
+	FILE *fp;
 } data_t;
 
 /********* External Variables **********/

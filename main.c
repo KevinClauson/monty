@@ -134,6 +134,7 @@ int main(int argc, char **argv)
 	data_g->stack_len = 0;
 	data_g->file_name = argv[1];
 	fp = fopen(argv[1], "r");
+	data_g->fp = fp;
 	if (fp == NULL)
 		error_handler(2);
 	read_file(fp);
