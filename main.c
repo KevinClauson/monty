@@ -67,18 +67,17 @@ char **parse_args(char *line)
 {
 	size_t i = 0, len = BUF_SIZE;
 	char *token;
-	/*char *delim = "$ ";*/
 
 	char **args = malloc(len * sizeof(char *));
 
 	if (args == NULL)
 		error_handler(3);
-	token = strtok(line, " \n");
+	token = strtok(line, " \t\n");
 	while (token != NULL)
 	{
 		args[i] = token;
 		i++;
-		token = strtok(NULL, " \n");
+		token = strtok(NULL, " \t\n");
 	}
 	args[i] = NULL;
 	return (args);
