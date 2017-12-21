@@ -65,10 +65,10 @@ int check_if_int(char *arg_2)
  */
 char **parse_args(char *line)
 {
-	size_t i = 0, len = BUF_SIZE;
+	size_t i = 0;
 	char *token;
 
-	char **args = malloc(len * sizeof(char *));
+	char **args = malloc(data_g->line_len * 2 * sizeof(char *));
 
 	if (args == NULL)
 		error_handler(3);
@@ -93,6 +93,7 @@ void read_file(FILE *fp)
 	ssize_t read;
 	size_t len = 0;
 
+	data_g->line_len = 0;
 	data_g->line = NULL;
 	data_g->args = NULL;
 	data_g->stack = NULL;
@@ -101,6 +102,7 @@ void read_file(FILE *fp)
 		++data_g->line_num;
 		if (data_g->line == NULL)
 			error_handler(3);
+		data_g->line_len = strlen(data_g->line);
 		data_g->args = parse_args(data_g->line);
 		if (data_g->args[0] != NULL)
 			execute_func(&data_g->stack);
