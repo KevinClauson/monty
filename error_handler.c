@@ -43,7 +43,6 @@ void error_handler(int error)
 	}
 	if (data_g != NULL)
 	{
-		fclose(data_g->fp);
 		free_data();
 	}
 	exit(EXIT_FAILURE);
