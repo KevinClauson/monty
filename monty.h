@@ -75,6 +75,7 @@ typedef struct data_s
 /********* External Variables **********/
 
 extern data_t *data_g;
+data_t *data_g;
 
 /******  Functions ********/
 void error_handler(int error);

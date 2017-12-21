@@ -1,7 +1,5 @@
 #include "monty.h"
 
-data_t *data_g;
-
 /**
  * execute_func - goes through list of functions to see if available.
  * @stack: argument count
