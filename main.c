@@ -49,8 +49,14 @@ int check_if_int(char *arg_2)
 	i = 0;
 	while (arg_2[i])
 	{
-		if (arg_2[i] < '0' || arg_2[i] > '9')
+		if (i == 0 && arg_2[0] == '-' && arg_2[i + 1] >= 1 && arg_2[i + 1] <= '9')
+		{
+			continue;
+		}
+		else if (arg_2[i] < '0' || arg_2[i] > '9')
+		{
 			return (0);
+		}
 		++i;
 	}
 	return (1);
