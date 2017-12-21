@@ -18,6 +18,10 @@ void free_stack(stack_t **stack)
 	}
 }
 
+/**
+ * free_data - free struc.
+ * Return: nothing.
+ */
 void free_data(void)
 {
 	if (data_g != NULL)

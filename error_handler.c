@@ -20,36 +20,27 @@ void error_handler(int error)
 		exit(EXIT_FAILURE);
 	case 4:
 		printf("L%d: unknown instruction %s\n", data_g->line_num, data_g->args[0]);
-		free_stack(&data_g->stack);
-		free_data();
-		exit(EXIT_FAILURE);
+		break;
 	case 5:
 		printf("L%d: usage: push integer\n", data_g->line_num);
-		free_stack(&data_g->stack);
-		free_data();
-		exit(EXIT_FAILURE);
+		break;
 	case 6:
 		printf("L%d: can't pint, stack empty\n", data_g->line_num);
-		free_stack(&data_g->stack);
-		free_data();
-		exit(EXIT_FAILURE);
+		break;
 	case 7:
 		printf("L%d: can't pop an empty stack\n", data_g->line_num);
-		free_stack(&data_g->stack);
-		free_data();
-		exit(EXIT_FAILURE);
+		break;
 	case 8:
 		printf("L%d: can't swap, stack too short\n", data_g->line_num);
-		free_stack(&data_g->stack);
-		free_data();
-		exit(EXIT_FAILURE);
+		break;
 	case 9:
 		printf("L%d: can't add, stack too short\n", data_g->line_num);
-		free_stack(&data_g->stack);
-		free_data();
-		exit(EXIT_FAILURE);
+		break;
 	default:
 		printf("Not sure why this failed, but please start over.\n");
 		exit(EXIT_FAILURE);
 	}
+	free_stack(&data_g->stack);
+	free_data();
+	exit(EXIT_FAILURE);
 }
