@@ -106,6 +106,9 @@ void read_file(FILE *fp)
 			execute_func(&data_g->stack);
 
 		free(data_g->args);
+		free(data_g->line);
+		data_g->line = NULL;
+		data_g->args = NULL;
 	}
 	free_stack(&data_g->stack);
 	free_data();

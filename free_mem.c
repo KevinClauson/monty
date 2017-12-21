@@ -26,7 +26,11 @@ void free_data(void)
 {
 	if (data_g != NULL)
 	{
-		free(data_g->line);
+
+		if (data_g->args != NULL)
+			free(data_g->args);
+		if (data_g->line != NULL)
+			free(data_g->line);
 		free(data_g);
 	}
 }
