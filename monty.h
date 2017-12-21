@@ -17,14 +17,6 @@
 #define BUF_SIZE 1024
 
 
-/******  Functions ********/
-void error_handler(int error);
-int check_if_int(char *arg_2);
-int check_if_int(char *arg_2);
-char **parse_args(char *line);
-void read_file(FILE *fp);
-
-
 /******* Structures *******/
 
 /**
@@ -65,13 +57,26 @@ typedef struct instruction_s
 typedef struct data_s
 {
 	char *file_name;
+	char *line;
+	char **args;
 	int line_num;
 	char *argument_1;
 	int argument_2;
+	stack_t *stack;
 } data_t;
 
 /********* External Variables **********/
 
 extern data_t *data_g;
+
+/******  Functions ********/
+void error_handler(int error);
+int check_if_int(char *arg_2);
+int check_if_int(char *arg_2);
+char **parse_args(char *line);
+void read_file(FILE *fp);
+void my_push(stack_t **stack, unsigned int line_number);
+void my_pall(stack_t **stack, unsigned int line_number);
+
 
 #endif
