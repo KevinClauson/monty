@@ -129,14 +129,14 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		error_handler(1);
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
-		error_handler(2);
 	data_g = malloc(sizeof(data_t));
 	data_g->line_num = 0;
 	data_g->stack_len = 0;
 	data_g->file_name = argv[1];
+	fp = fopen(argv[1], "r");
 	data_g->fp = fp;
+	if (fp == NULL)
+		error_handler(2);
 	read_file(fp);
 
 	return (0);
