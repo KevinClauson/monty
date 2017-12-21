@@ -30,9 +30,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -45,14 +45,20 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
- * struct data - caries data around to use in various functions
+ * struct data_s - caries data around to use in various functions
  * @file_name: the file name reading from
+ * @line: the line that is read from the file
+ * @args: tokenized string of arguments from line.
  * @line_num: current linee number
+ * @argument_1: the first argument to read
+ * @argument_2: the second argument to read
+ * @stack: pointer to doubly linked list
+ * @stack_len: counter of how many nodes in linked list
  */
 typedef struct data_s
 {
@@ -79,6 +85,10 @@ void read_file(FILE *fp);
 void my_push(stack_t **stack, unsigned int line_number);
 void my_pall(stack_t **stack, unsigned int line_number);
 void my_pint(stack_t **stack, unsigned int line_number);
+void my_pop(stack_t **stack, unsigned int line_number);
 void my_swap(stack_t **stack, unsigned int line_number);
+void my_add(stack_t **stack, unsigned int line_number);
+void my_nop(stack_t **stack, unsigned int line_number);
+
 
 #endif
