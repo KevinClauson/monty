@@ -62,7 +62,7 @@ void error_handler_2(int error)
 		printf("L%d: division by zero\n", data_g->line_num);
 		break;
 	case 4:
-		printf("L%d: unknown instruction %s\n", data_g->line_num, data_g->args[0]);
+		printf("L%d: can't mul, stack too short\n", data_g->line_num);
 		break;
 	case 5:
 		printf("L%d: usage: push integer\n", data_g->line_num);

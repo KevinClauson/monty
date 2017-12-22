@@ -101,5 +101,6 @@ void my_add(stack_t **stack, unsigned int line_number);
 void my_nop(stack_t **stack, unsigned int line_number);
 void my_sub(stack_t **stack, unsigned int line_number);
 void my_div(stack_t **stack, unsigned int line_number);
+void my_mul(stack_t **stack, unsigned int line_number);
 
 #endif
