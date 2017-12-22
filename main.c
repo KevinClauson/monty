@@ -13,10 +13,10 @@ void execute_func(stack_t **stack)
 		{"pall", my_pall}, {"push", my_push},
 		{"pint", my_pint}, {"pop", my_pop},
 		{"swap", my_swap}, {"add", my_add},
-		{"nop", my_nop}, {"sub", my_sub}, {"div", my_div},
-		{"mul", my_mul}, {"mod", my_mod}, {"pchar", my_pchar},
+		{"nop", my_nop}, {"sub", my_sub},
+		{"div", my_div}, {"mul", my_mul},
+		{"mod", my_mod}, {"pchar", my_pchar},
 		{"pstr", my_pstr}, {"rotl", my_rotl}, {"rotr", rotr},
-		{"stack", my_stack}, {"queue", my_queue},
 		{NULL, NULL}
 	};
 	while (find_func[i].opcode != NULL)
@@ -137,8 +137,7 @@ int main(int argc, char **argv)
 	data_g->line = NULL;
 	data_g->args = NULL;
 	data_g->stack = NULL;
-	data_g->tail = NULL;
-	data_g->lifo = 1;
+
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 		error_handler(2);
