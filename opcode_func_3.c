@@ -71,3 +71,31 @@ void my_pstr(stack_t **stack, unsigned int line_number)
 		printf("\n");
 	}
 }
+
+/**
+ * my_rotl - takes head of the stack and puts it at the end;
+ * @stack: pointer to doubly linkes list
+ * @line_number: the line number of the operation send it to pop, but not used
+ * Return: nothing.
+ */
+void my_rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first, *second, *temp;
+
+	(void) line_number;
+
+	if (data_g->stack_len > 1)
+	{
+		first = temp = *stack;
+		second = first->next;
+		while(temp->next)
+		{
+			temp = temp->next;
+		}
+		temp->next = first;
+		first->prev = temp;
+		first->next = NULL;
+		data_g->stack = second;
+		second->prev = NULL;
+	}
+}
