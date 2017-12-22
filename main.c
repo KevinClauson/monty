@@ -95,9 +95,6 @@ void read_file(FILE *fp)
 	size_t len = 0;
 
 /*	data_g->line_len = 0; */
-	data_g->line = NULL;
-	data_g->args = NULL;
-	data_g->stack = NULL;
 	while ((read = getline(&data_g->line, &len, fp)) != -1)
 	{
 		++data_g->line_num;
@@ -137,6 +134,10 @@ int main(int argc, char **argv)
 	data_g->line_num = 0;
 	data_g->stack_len = 0;
 	data_g->file_name = argv[1];
+	data_g->line = NULL;
+	data_g->args = NULL;
+	data_g->stack = NULL;
+
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 		error_handler(2);
