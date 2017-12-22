@@ -83,6 +83,8 @@ data_t *data_g;
 
 /******  Functions ********/
 void error_handler(int error);
+void error_handler_2(int error);
+
 int check_if_int(char *arg_2);
 char **parse_args(char *line);
 void read_file(FILE *fp);
@@ -97,6 +99,6 @@ void my_pop(stack_t **stack, unsigned int line_number);
 void my_swap(stack_t **stack, unsigned int line_number);
 void my_add(stack_t **stack, unsigned int line_number);
 void my_nop(stack_t **stack, unsigned int line_number);
-
+void my_sub(stack_t **stack, unsigned int line_number);
 
 #endif
