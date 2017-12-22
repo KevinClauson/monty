@@ -14,7 +14,7 @@
 #include <fcntl.h>
 
 /****** Defintions ********/
-#define BUF_SIZE 2024
+#define BUF_SIZE 3024
 
 
 /******* Structures *******/
@@ -60,6 +60,7 @@ typedef struct instruction_s
  * @stack: pointer to doubly linked list
  * @stack_len: counter of how many nodes in linked list
  * @fp: the pointer to the open file.
+ * @line_len: length of line read;
  */
 typedef struct data_s
 {
@@ -71,6 +72,7 @@ typedef struct data_s
 	int argument_2;
 	stack_t *stack;
 	int stack_len;
+	int line_len;
 	FILE *fp;
 } data_t;
 
