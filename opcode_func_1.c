@@ -11,11 +11,11 @@ void my_push(stack_t **stack, unsigned int line_number)
 	stack_t *new;
 
 	(void) line_number;
+	if (check_if_int(data_g->args[1]) == 0)
+		error_handler(5);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 		error_handler(3);
-	if (check_if_int(data_g->args[1]) == 0)
-		error_handler(5);
 	data_g->argument_2 = atoi(data_g->args[1]);
 	new->n = data_g->argument_2;
 	if (stack == NULL)
