@@ -32,8 +32,15 @@ void my_push(stack_t **stack, unsigned int line_number)
 		if (data_g->tail == NULL)
 			data_g->tail = new;
 	}
+/*
 	else
 	{
+		if (stack == NULL)
+			new->prev = NULL;
+		else
+			new->prev = data_g->tail;
+		if (data_g->tail)
+			data_g->tail->next = new;
 		new->next = NULL;
 		new->prev = data_g->tail;
 		if (data_g->tail)
@@ -42,6 +49,7 @@ void my_push(stack_t **stack, unsigned int line_number)
 		if (data_g->stack == NULL)
 			data_g->stack = new;
 	}
+*/
 	++data_g->stack_len;
 }
 
