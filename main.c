@@ -29,7 +29,8 @@ void execute_func(stack_t **stack)
 
 	if (find_func[i].opcode == NULL)
 	{
-		error_handler(4);
+		if (data_g->args[0][0] != '#')
+			error_handler(4);
 	}
 }
 
