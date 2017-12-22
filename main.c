@@ -16,7 +16,7 @@ void execute_func(stack_t **stack)
 		{"nop", my_nop}, {"sub", my_sub},
 		{"div", my_div}, {"mul", my_mul},
 		{"mod", my_mod}, {"pchar", my_pchar},
-		{NULL, NULL}
+		{"pstr", my_pstr}, {NULL, NULL}
 	};
 	while (find_func[i].opcode != NULL)
 	{

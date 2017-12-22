@@ -42,3 +42,32 @@ void my_pchar(stack_t **stack, unsigned int line_number)
 		error_handler_2(6);
 	printf("%c\n", first->n);
 }
+
+/**
+ * my_pstr - prints out the ascii value of the whole list
+ * if out side of ascii range or 0 stop.
+ * @stack: pointer to doubly linkes list
+ * @line_number: the line number of the operation send it to pop, but not used
+ * Return: nothing.
+ */
+void my_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first;
+
+	(void) line_number;
+
+	if (data_g->stack_len < 1)
+		printf("\n");
+	else
+	{
+		first = *stack;
+		while(first)
+		{
+			if (first->n < 33 || first->n >= 127)
+				break;
+			printf("%c", first->n);
+			first = first->next;
+		}
+		printf("\n");
+	}
+}
