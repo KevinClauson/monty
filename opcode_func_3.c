@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * my_div - divides the number in the top two nodes and stores it in the 2nd
+ * my_mod - mods the number in the top two nodes and stores it in the 2nd
  * and pops off the head node. thorws an error if less than 2 nodes.
  * also throws error if divide by 0
  * @stack: pointer to doubly linkes list
@@ -61,7 +61,7 @@ void my_pstr(stack_t **stack, unsigned int line_number)
 	else
 	{
 		first = *stack;
-		while(first)
+		while (first)
 		{
 			if (first->n < 33 || first->n >= 127)
 				break;
@@ -88,7 +88,7 @@ void my_rotl(stack_t **stack, unsigned int line_number)
 	{
 		first = temp = *stack;
 		second = first->next;
-		while(temp->next)
+		while (temp->next)
 		{
 			temp = temp->next;
 		}
@@ -101,7 +101,7 @@ void my_rotl(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * my_rotr - takes the last element and makes if first of the stack puts first
+ * rotr - takes the last element and makes if first of the stack puts first
  * @stack: pointer to doubly linkes list
  * @line_number: the line number of the operation send it to pop, but not used
  * Return: nothing.
@@ -115,7 +115,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	if (data_g->stack_len > 1)
 	{
 		first = temp = *stack;
-		while(temp->next)
+		while (temp->next)
 		{
 			temp = temp->next;
 		}

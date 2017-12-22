@@ -48,6 +48,13 @@ void error_handler(int error)
 	exit(EXIT_FAILURE);
 }
 
+
+/**
+ * error_handler_2 - handles all errors for the program
+ * @error: an int that signifies the error that occured.
+ * Return: nothing but exits with an exit_failure.
+ */
+
 void error_handler_2(int error)
 {
 	switch (error)
