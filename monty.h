@@ -76,6 +76,7 @@ typedef struct data_s
 	int line_len;
 	FILE *fp;
 	stack_t *tail;
+	int lifo;
 } data_t;
 
 /********* External Variables **********/
@@ -109,5 +110,7 @@ void my_pchar(stack_t **stack, unsigned int line_number);
 void my_pstr(stack_t **stack, unsigned int line_number);
 void my_rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void my_queue(stack_t **stack, unsigned int line_number);
+void my_stack(stack_t **stack, unsigned int line_number);
 
 #endif
