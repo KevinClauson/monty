@@ -65,7 +65,7 @@ void error_handler_2(int error)
 		printf("L%d: can't mul, stack too short\n", data_g->line_num);
 		break;
 	case 5:
-		printf("L%d: usage: push integer\n", data_g->line_num);
+		printf("L%d: can't mod, stack too short\n", data_g->line_num);
 		break;
 	case 6:
 		printf("L%d: can't pint, stack empty\n", data_g->line_num);

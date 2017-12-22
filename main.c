@@ -10,17 +10,12 @@ void execute_func(stack_t **stack)
 	int i = 0;
 
 	instruction_t find_func[] = {
-		{"pall", my_pall},
-		{"push", my_push},
-		{"pint", my_pint},
-		{"pop", my_pop},
-		{"swap", my_swap},
-		{"add", my_add},
-		{"nop", my_nop},
-		{"sub", my_sub},
-		{"div", my_div},
-		{"mul", my_mul},
-		{NULL, NULL}
+		{"pall", my_pall}, {"push", my_push},
+		{"pint", my_pint}, {"pop", my_pop},
+		{"swap", my_swap}, {"add", my_add},
+		{"nop", my_nop}, {"sub", my_sub},
+		{"div", my_div}, {"mul", my_mul},
+		{"mod", my_mod}, {NULL, NULL}
 	};
 	while (find_func[i].opcode != NULL)
 	{
