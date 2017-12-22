@@ -14,7 +14,7 @@
 #include <fcntl.h>
 
 /****** Defintions ********/
-#define BUF_SIZE 5024
+#define BUF_SIZE 1024
 
 
 /******* Structures *******/

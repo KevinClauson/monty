@@ -91,11 +91,10 @@ char **parse_args(char *line)
  */
 void read_file(FILE *fp)
 {
-	ssize_t read;
 	size_t len = 0;
 
 /*	data_g->line_len = 0; */
-	while ((read = getline(&data_g->line, &len, fp)) != -1)
+	while (getline(&data_g->line, &len, fp) > 0)
 	{
 		++data_g->line_num;
 		if (data_g->line == NULL)
