@@ -56,10 +56,10 @@ void error_handler_2(int error)
 		printf("L%d: can't sub, stack too short\n", data_g->line_num);
 		break;
 	case 2:
-		printf("Error: Can't open file %s\n", data_g->file_name);
+		printf("L%d: can't div, stack too short\n", data_g->line_num);
 		break;
 	case 3:
-		printf("Error: malloc failed\n");
+		printf("L%d: division by zero\n", data_g->line_num);
 		break;
 	case 4:
 		printf("L%d: unknown instruction %s\n", data_g->line_num, data_g->args[0]);
