@@ -99,3 +99,31 @@ void my_rotl(stack_t **stack, unsigned int line_number)
 		second->prev = NULL;
 	}
 }
+
+/**
+ * my_rotr - takes the last element and makes if first of the stack puts first
+ * @stack: pointer to doubly linkes list
+ * @line_number: the line number of the operation send it to pop, but not used
+ * Return: nothing.
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first, *temp;
+
+	(void) line_number;
+
+	if (data_g->stack_len > 1)
+	{
+		first = temp = *stack;
+		while(temp->next)
+		{
+			temp = temp->next;
+		}
+		temp->prev->next = NULL;
+		temp->prev = NULL;
+		temp->next = first;
+		first->prev = temp;
+		data_g->stack = temp;
+	}
+}
+
