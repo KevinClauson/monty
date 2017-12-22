@@ -103,5 +103,6 @@ void my_sub(stack_t **stack, unsigned int line_number);
 void my_div(stack_t **stack, unsigned int line_number);
 void my_mul(stack_t **stack, unsigned int line_number);
 void my_mod(stack_t **stack, unsigned int line_number);
+void my_pchar(stack_t **stack, unsigned int line_number);
 
 #endif

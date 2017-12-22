@@ -68,10 +68,10 @@ void error_handler_2(int error)
 		printf("L%d: can't mod, stack too short\n", data_g->line_num);
 		break;
 	case 6:
-		printf("L%d: can't pint, stack empty\n", data_g->line_num);
+		printf("L%d: can't pchar, value out of range\n", data_g->line_num);
 		break;
 	case 7:
-		printf("L%d: can't pop an empty stack\n", data_g->line_num);
+		printf("L%d: can't pchar, stack empty\n", data_g->line_num);
 		break;
 	case 8:
 		printf("L%d: can't swap, stack too short\n", data_g->line_num);
