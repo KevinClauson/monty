@@ -137,7 +137,7 @@ int main(int argc, char **argv)
 	data_g->line = NULL;
 	data_g->args = NULL;
 	data_g->stack = NULL;
-
+	data_g->tail = NULL;
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 		error_handler(2);

@@ -26,6 +26,8 @@ void my_push(stack_t **stack, unsigned int line_number)
 	if (*stack != NULL)
 		(*stack)->prev = new;
 	data_g->stack = new;
+	if (data_g->tail == NULL)
+		data_g->tail = new;
 	++data_g->stack_len;
 }
 
@@ -84,6 +86,8 @@ void my_pop(stack_t **stack, unsigned int line_number)
 		data_g->stack = current->next;
 		if (current->next)
 			current->next->prev = NULL;
+		if (data_g->tail == current)
+			data_g->tail = NULL;
 		free(current);
 		--data_g->stack_len;
 	}
@@ -103,7 +107,6 @@ void my_swap(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	if (data_g->stack_len < 2)
 		error_handler(8);
-
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
@@ -113,4 +116,6 @@ void my_swap(stack_t **stack, unsigned int line_number)
 	data_g->stack = second;
 	if (first->next)
 		first->next->prev = first;
+	if (data_g->tail == second)
+		data_g->tail = first;
 }

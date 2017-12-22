@@ -86,17 +86,21 @@ void my_rotl(stack_t **stack, unsigned int line_number)
 
 	if (data_g->stack_len > 1)
 	{
-		first = temp = *stack;
+		first = *stack;
 		second = first->next;
+		temp = data_g->tail;
+/*
 		while (temp->next)
 		{
 			temp = temp->next;
 		}
+*/
 		temp->next = first;
 		first->prev = temp;
 		first->next = NULL;
 		data_g->stack = second;
 		second->prev = NULL;
+		data_g->tail = first;
 	}
 }
 
