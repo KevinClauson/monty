@@ -74,7 +74,7 @@ char **parse_args(char *line)
 	if (args == NULL)
 		error_handler(3);
 	token = strtok(line, " \t\n");
-	while (token != NULL)
+	while (token != NULL && i < 2)
 	{
 		args[i] = token;
 		i++;

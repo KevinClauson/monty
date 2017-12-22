@@ -29,7 +29,16 @@ void free_data(void)
 		if (data_g->stack != NULL)
 			free_stack(&data_g->stack);
 		if (data_g->args != NULL)
+		{
+/*
+			if (data_g->args[1] != NULL)
+				free(data_g->args[1]);
+
+			if (data_g->args[0] != NULL)
+				free(data_g->args[0]);
+*/
 			free(data_g->args);
+		}
 		if (data_g->line != NULL)
 			free(data_g->line);
 		if (data_g->fp != NULL)
