@@ -36,9 +36,9 @@ void my_pchar(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 
 	if (data_g->stack_len < 1)
-		error_handler_2(6);
-	first = *stack;
-	if (first->n < 33 || first->n > 127)
 		error_handler_2(7);
+	first = *stack;
+	if (first->n < 33 || first->n >= 127)
+		error_handler_2(6);
 	printf("%c\n", first->n);
 }
