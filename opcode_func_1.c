@@ -19,7 +19,7 @@ void my_push(stack_t **stack, unsigned int line_number)
 		error_handler(3);
 	data_g->argument_2 = atoi(data_g->args[1]);
 	new->n = data_g->argument_2;
-	if (data_g->lifo == 1)
+	if (data_g->lifo == 0)
 	{
 		if (stack == NULL)
 			new->next = NULL;
