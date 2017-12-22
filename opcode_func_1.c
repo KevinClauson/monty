@@ -19,40 +19,17 @@ void my_push(stack_t **stack, unsigned int line_number)
 		error_handler(3);
 	data_g->argument_2 = atoi(data_g->args[1]);
 	new->n = data_g->argument_2;
-
-	if (data_g->lifo == 1)
-	{
-		if (stack == NULL)
-			new->next = NULL;
-		else
-			new->next = *stack;
-		if (*stack != NULL)
-			(*stack)->prev = new;
-		data_g->stack = new;
-		if (data_g->tail == NULL)
-			data_g->tail = new;
-	}
-/*
-	else
-	{
-		if (stack == NULL)
-			new->prev = NULL;
-		else
-			new->prev = data_g->tail;
-		if (data_g->tail)
-			data_g->tail->next = new;
+	if (stack == NULL)
 		new->next = NULL;
-		new->prev = data_g->tail;
-		if (data_g->tail)
-			data_g->tail->next = new;
+	else
+		new->next = *stack;
+	if (*stack != NULL)
+		(*stack)->prev = new;
+	data_g->stack = new;
+	if (data_g->tail == NULL)
 		data_g->tail = new;
-		if (data_g->stack == NULL)
-			data_g->stack = new;
-	}
-*/
 	++data_g->stack_len;
 }
-
 /**
  * my_pall - prints the whole list or throws an error if empty.
  * @stack: pointer to the head of the doubley linked list or to Null if empty
