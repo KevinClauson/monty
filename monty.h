@@ -75,7 +75,6 @@ typedef struct data_s
 	int stack_len;
 	int line_len;
 	FILE *fp;
-	int lifo;
 } data_t;
 
 /********* External Variables **********/
