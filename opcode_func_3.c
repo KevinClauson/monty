@@ -126,4 +126,3 @@ void rotr(stack_t **stack, unsigned int line_number)
 		data_g->stack = temp;
 	}
 }
-

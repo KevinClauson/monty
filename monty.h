@@ -61,6 +61,7 @@ typedef struct instruction_s
  * @stack_len: counter of how many nodes in linked list
  * @fp: the pointer to the open file.
  * @line_len: length of line read;
+ * @lifo: if lifo 1 if fifo 0.
  */
 typedef struct data_s
 {
@@ -74,6 +75,7 @@ typedef struct data_s
 	int stack_len;
 	int line_len;
 	FILE *fp;
+	int lifo;
 } data_t;
 
 /********* External Variables **********/
