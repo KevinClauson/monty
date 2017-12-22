@@ -19,14 +19,21 @@ void my_push(stack_t **stack, unsigned int line_number)
 		error_handler(3);
 	data_g->argument_2 = atoi(data_g->args[1]);
 	new->n = data_g->argument_2;
-	if (stack == NULL)
-		new->next = NULL;
+	if (data_g->lifo == 1)
+	{
+		if (stack == NULL)
+			new->next = NULL;
+		else
+			new->next = *stack;
+		if (*stack != NULL)
+			(*stack)->prev = new;
+		data_g->stack = new;
+		++data_g->stack_len;
+	}
 	else
-		new->next = *stack;
-	if (*stack != NULL)
-		(*stack)->prev = new;
-	data_g->stack = new;
-	++data_g->stack_len;
+	{
+		printf("your fucked\n");
+	}
 }
 
 /**

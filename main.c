@@ -17,6 +17,7 @@ void execute_func(stack_t **stack)
 		{"div", my_div}, {"mul", my_mul},
 		{"mod", my_mod}, {"pchar", my_pchar},
 		{"pstr", my_pstr}, {"rotl", my_rotl}, {"rotr", rotr},
+		{"stack", my_stack}, {"queue", my_queue},
 		{NULL, NULL}
 	};
 	while (find_func[i].opcode != NULL)
@@ -28,7 +29,6 @@ void execute_func(stack_t **stack)
 		}
 		++i;
 	}
-
 	if (find_func[i].opcode == NULL)
 	{
 		if (data_g->args[0][0] != '#')
