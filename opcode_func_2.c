@@ -85,7 +85,7 @@ void my_mul(stack_t **stack, unsigned int line_number)
 	stack_t *first, *second;
 
 	if (data_g->stack_len < 2)
-		error_handler_2(1);
+		error_handler_2(4);
 
 	first = *stack;
 	second = first->next;
