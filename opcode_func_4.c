@@ -11,8 +11,7 @@ void my_queue(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	(void) **stack;
 
-	if (data_g->lifo == 1)
-		data_g->lifo = 0;
+	data_g->lifo = 0;
 }
 
 /**
@@ -26,6 +25,5 @@ void my_stack(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	(void) **stack;
 
-	if (data_g->lifo == 0)
-		data_g->lifo = 1;
+	data_g->lifo = 1;
 }

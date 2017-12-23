@@ -8,20 +8,18 @@
  */
 void my_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *new, *temp;
 
 	(void) line_number;
-
 	if (data_g->args[1] == NULL || check_if_int(data_g->args[1]) == 0)
 		error_handler(5);
 	new = malloc(sizeof(stack_t));
-
+	if (new == NULL)
+		error_handler(3);
+	data_g->argument_2 = atoi(data_g->args[1]);
+	new->n = data_g->argument_2;
 	if (data_g->lifo == 1)
 	{
-		if (new == NULL)
-			error_handler(3);
-		data_g->argument_2 = atoi(data_g->args[1]);
-		new->n = data_g->argument_2;
 		if (stack == NULL)
 			new->next = NULL;
 		else
@@ -29,8 +27,25 @@ void my_push(stack_t **stack, unsigned int line_number)
 		if (*stack != NULL)
 			(*stack)->prev = new;
 		data_g->stack = new;
-		++data_g->stack_len;
 	}
+	else
+	{
+		new->next = NULL;
+		if (*stack == NULL)
+		{
+			new->prev = NULL;
+			data_g->stack = new;
+		}
+		else
+		{
+			temp = *stack;
+			while (temp->next)
+				temp = temp->next;
+			new->prev = temp;
+			temp->next = new;
+		}
+	}
+	++data_g->stack_len;
 }
 
 /**
